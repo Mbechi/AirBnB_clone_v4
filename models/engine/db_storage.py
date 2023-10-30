@@ -79,7 +79,7 @@ class DBStorage:
         try:
             with open(self.__file_path, 'r') as f:
                 self.__objects = json.load(f, object_hook=object_hook)
-        except:
+        except FileNotFoundError:
             self.__objects.clear()
             raise
 
